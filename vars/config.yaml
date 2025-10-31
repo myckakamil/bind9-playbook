@@ -1,0 +1,17 @@
+---
+ansible_user: kamil
+bind_domains:
+  - name: lan.mycka.net
+    network: "172.30"
+    serial: 2025103101
+    nameserver_ip: 172.30.20.10
+    hosts:
+      - name: dns
+        type: A
+        ip: 172.30.20.10
+      - name: router
+        type: A
+        ip: 172.30.100.1
+      - name: crs326
+        type: A
+        ip: 172.30.100.2

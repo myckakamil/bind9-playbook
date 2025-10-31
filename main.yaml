@@ -1,0 +1,58 @@
+---
+- name: Install and configure bind9 DNS server
+  hosts: all
+  become: true
+
+  pre_tasks:
+    - name: Load variables
+      ansible.builtin.include_vars: vars/config.yaml
+  tags: always
+
+  tasks:
+    - name: Install required packages
+      ansible.builtin.package:
+        name:
+          - bind9.18
+          - bind9.18-utils
+        state: present
+
+    - name: Move config template
+      ansible.builtin.template:
+        src: named.conf.j2
+        dest: "/var/named.conf"
+        owner: named
+        group: named
+        mode: '0644'
+      notify: Restart bind9
+
+    - name: Move zone template
+      ansible.builtin.template:
+        src: zone_forward.j2
+        dest: "/var/named/{{ item.name }}.zone"
+        owner: named
+        group: named
+        mode: '0644'
+      loop: "{{ bind_domains }}"
+      notify: Restart bind9
+
+    - name: Move reverse zone template
+      ansible.builtin.template:
+        src: zone_reverse.j2
+        dest: "/var/named/{{ item.network.split('.')[1] }}.{{ item.network.split('.')[0] }}.in-addr.arpa.rev"
+        owner: named
+        group: named
+        mode: '0644'
+      loop: "{{ bind_domains }}"
+      notify: Restart bind9
+
+    - name: Ensure bind9 is enabled and started
+      ansible.builtin.service:
+        name: named
+        state: started
+        enabled: true
+
+  handlers:
+    - name: Restart bind9
+      ansible.builtin.service:
+        name: named
+        state: restarted

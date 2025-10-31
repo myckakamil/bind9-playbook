@@ -1,0 +1,16 @@
+$TTL 86400
+@   IN  SOA     dns.{{ item.name }}. admin.{{ item.name }}. (
+                {{ item.serial }}  ; Serial
+                3600        ; Refresh
+                1800        ; Retry
+                604800      ; Expire
+                86400       ; Minimum TTL
+)
+
+; Name Server Information
+@       IN  NS      dns.{{ item.name }}.
+@       IN  A       {{ item.nameserver_ip }}
+
+{% for host in item.hosts %}
+{{ host.name }}  IN  {{ host.type }}   {{ host.ip }}
+{% endfor %}

@@ -1,0 +1,16 @@
+$TTL 86400
+@   IN  SOA     dns.{{ item.name }}. admin.{{ item.name }}. (
+                {{ item.serial }}  ; Serial
+                3600        ; Refresh
+                1800        ; Retry
+                604800      ; Expire
+                86400       ; Minimum TTL
+)
+
+@       IN  NS      dns.{{ item.name }}.
+
+{% for host in item.hosts %}
+{% set parts = host.ip.split(item.network + ".")[1].split('.') %}
+{% set rev_ip = parts | reverse | join('.') %}
+{{ rev_ip }}   IN  PTR     {{ host.name }}.{{ item.name }}.
+{% endfor %}
