@@ -19,7 +19,7 @@
     - name: Move config template
       ansible.builtin.template:
         src: named.conf.j2
-        dest: "/var/named.conf"
+        dest: "/etc/named.conf"
         owner: named
         group: named
         mode: '0644'

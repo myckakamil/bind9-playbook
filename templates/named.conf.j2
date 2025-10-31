@@ -2,7 +2,22 @@ options {
   listen-on port 53 { any; };
   directory "/var/named";
   allow-query { any; };
-  recursion no;
+  recursion yes;
+  allow-recursion {
+    127.0.0.1;
+    {% for domain in bind_domains %}
+    {{ domain.network }}.0.0/16;
+    {% endfor %}
+  };
+
+  forwarders {
+    9.9.9.9;
+    1.1.1.1;
+  };
+
+  forward only;
+  dnssec-validation auto;
+  allow-transfer { none; };
 };
 
 {% for domain in bind_domains %}
