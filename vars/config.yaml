@@ -3,7 +3,7 @@ ansible_user: kamil
 bind_domains:
   - name: lan.mycka.net
     network: "172.30"
-    serial: 2025103101
+    serial: 2025110501
     nameserver_ip: 172.30.20.10
     hosts:
       - name: dns
@@ -15,3 +15,10 @@ bind_domains:
       - name: crs326
         type: A
         ip: 172.30.100.2
+      - name: nextcloud
+        type: A
+        ip: 172.30.20.11
+      - name: librenms
+        type: A
+        ip: 172.30.20.12
+
