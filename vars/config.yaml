@@ -3,7 +3,7 @@ ansible_user: kamil
 bind_domains:
   - name: lan.mycka.net
     network: "172.30"
-    serial: 2025110501
+    serial: 2025110901
     nameserver_ip: 172.30.20.10
     hosts:
       - name: dns
@@ -21,4 +21,6 @@ bind_domains:
       - name: librenms
         type: A
         ip: 172.30.20.12
-
+      - name: smokeping
+        type: A
+        ip: 172.30.20.13
