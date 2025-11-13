@@ -24,3 +24,6 @@ bind_domains:
       - name: smokeping
         type: A
         ip: 172.30.20.13
+      - name: nas
+        type: A
+        ip: 172.30.20.14
