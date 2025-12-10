@@ -34,7 +34,7 @@ All DNS records are stored in `vars/config.yaml`
 ansible_user: admin
 bind_domains:
   - name: example.net
-    network: "10.20.30"
+    network: "10.20"
     serial: 2025010101
     nameserver_ip: 10.20.30.10
     hosts:
@@ -49,5 +49,6 @@ bind_domains:
 
 Todo
 ---
-- [ ] - make this playbook compatible with RHEL systems
-- [ ] - split tasks into seperate roles
+- [ ] - make this playbook compatible with Debian systems
+- [ ] - improve configuration file
+- [ ] - add block list
