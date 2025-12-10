@@ -12,7 +12,7 @@ bind_domains:
       - name: router
         type: A
         ip: 172.30.100.1
-      - name: crs326
+      - name: switch
         type: A
         ip: 172.30.100.2
       - name: nextcloud
@@ -27,3 +27,9 @@ bind_domains:
       - name: nas
         type: A
         ip: 172.30.20.14
+      - name: jellyfin
+        type: A
+        ip: 172.30.20.15
+      - name: cups
+        type: A
+        ip: 172.30.20.16
