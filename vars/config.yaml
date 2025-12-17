@@ -33,3 +33,21 @@ bind_domains:
       - name: cups
         type: A
         ip: 172.30.20.16
+      - name: rpi1
+        type: A
+        ip: 172.30.40.11
+      - name: rpi2
+        type: A
+        ip: 172.30.40.12
+      - name: rpi3
+        type: A
+        ip: 172.30.40.13
+      - name: rpi4
+        type: A
+        ip: 172.30.40.14
+      - name: pve1
+        type: A
+        ip: 172.30.100.101
+      - name: pve2
+        type: A
+        ip: 172.30.100.102
