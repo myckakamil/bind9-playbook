@@ -51,3 +51,27 @@ bind_domains:
       - name: pve2
         type: A
         ip: 172.30.100.102
+      - name: master01
+        type: A
+        ip: 172.30.40.15
+      - name: master02
+        type: A
+        ip: 172.30.40.16
+      - name: master03
+        type: A
+        ip: 172.30.40.11
+      - name: worker01
+        type: A
+        ip: 172.30.40.17
+      - name: worker02
+        type: A
+        ip: 172.30.40.18
+      - name: worker03
+        type: A
+        ip: 172.30.40.12
+      - name: worker04
+        type: A
+        ip: 172.30.40.13
+      - name: worker05
+        type: A
+        ip: 172.30.40.14
