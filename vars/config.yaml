@@ -38,7 +38,7 @@ bind_domains:
         ip: 172.30.20.17
       - name: eveng
         type: A
-        ip: 172.30.20.18
+        ip: 172.30.50.10
       - name: rpi1
         type: A
         ip: 172.30.40.11
